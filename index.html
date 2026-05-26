@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mahesh Rathod - Full Stack Developer portfolio showing frontend, backend, database, API, authentication, and scalable web application skills." />
+  <title>Mahesh Rathod | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef3f8;
+      --ink: #17202a;
+      --muted: #5f6f82;
+      --line: #dbe3ec;
+      --brand: #0f766e;
+      --brand-dark: #115e59;
+      --blue: #2563eb;
+      --coral: #e35d4f;
+      --gold: #b7791f;
+      --shadow: 0 18px 45px rgba(22, 32, 42, 0.11);
+      --shadow-strong: 0 24px 60px rgba(22, 32, 42, 0.15);
+      --radius: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 118px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.08), transparent 360px),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 248, 251, 0.78);
+      padding: 6px 0;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px 10px 14px;
+      border: 1px solid rgba(219, 227, 236, 0.9);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 14px 38px rgba(22, 32, 42, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--brand);
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0;
+      flex: 0 0 auto;
+      box-shadow: 0 12px 28px rgba(15, 118, 110, 0.24);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 1.12rem;
+      line-height: 1.15;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.25;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding: 5px;
+      border-radius: 10px;
+      background: var(--surface-soft);
+    }
+
+    .nav-links a,
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 6px;
+      padding: 9px 14px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .nav-links .button.primary {
+      margin-left: 4px;
+      border-radius: 8px;
+    }
+
+    .button.primary {
+      background: var(--brand);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.18);
+    }
+
+    .button.primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .button.secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .button.secondary:hover {
+      border-color: #b9c8d8;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(340px, 0.72fr);
+      gap: 22px;
+      padding: 28px 0 34px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      position: relative;
+      overflow: hidden;
+      padding: 52px;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.36), transparent 48%),
+        linear-gradient(315deg, rgba(37, 99, 235, 0.24), transparent 48%),
+        #12242b;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: var(--shadow-strong);
+      color: #ffffff;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero-copy > * {
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: #dffcf2;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 840px;
+      font-size: clamp(2.85rem, 5.8vw, 5.35rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .accent-text {
+      color: #6ee7b7;
+    }
+
+    .summary {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: #c8d7df;
+      font-size: 1.24rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy .button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-copy .button.secondary:hover {
+      border-color: rgba(255, 255, 255, 0.46);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .hero-tags span {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .proof {
+      display: grid;
+      gap: 12px;
+    }
+
+    .proof-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .proof-card.featured {
+      background: #ffffff;
+      color: #ffffff;
+      border-color: rgba(15, 118, 110, 0.16);
+      color: var(--ink);
+    }
+
+    .proof-card.featured .proof-label,
+    .proof-card.featured .mini-code {
+      color: var(--muted);
+    }
+
+    .proof-card.featured .mini-code {
+      background: var(--surface-soft);
+    }
+
+    .proof-number {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 2.3rem;
+      line-height: 1;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .proof-label {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .mini-code {
+      margin: 14px 0 0;
+      padding: 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .mini-code span {
+      color: var(--brand);
+    }
+
+    .section {
+      padding: 42px 0;
+      scroll-margin-top: 118px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 560px;
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel,
+    .project,
+    .experience-row {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(22, 32, 42, 0.06);
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: rgba(15, 118, 110, 0.35);
+      box-shadow: 0 18px 40px rgba(22, 32, 42, 0.1);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .project-type,
+    .meta {
+      margin-top: 4px;
+      color: var(--blue);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .project p,
+    .panel p,
+    .experience-row p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.06rem;
+    }
+
+    .project p {
+      margin-bottom: 16px;
+    }
+
+    .project-link {
+      color: var(--brand-dark);
+      font-size: 1rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: #314052;
+      padding: 5px 9px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .about-main {
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.1), transparent 42%),
+        var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .about-main p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-point {
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: 0 12px 32px rgba(22, 32, 42, 0.06);
+    }
+
+    .about-point strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.12rem;
+    }
+
+    .about-point span {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .insight-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .insight {
+      padding: 16px;
+      border-radius: 6px;
+      background: #12242b;
+      color: #ffffff;
+      min-height: 112px;
+    }
+
+    .insight strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .insight span {
+      display: block;
+      margin-top: 8px;
+      color: #c8d7df;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .shortlist {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .shortlist-panel {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .shortlist-panel.dark {
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.25), transparent 55%),
+        #12242b;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .shortlist-panel.dark p,
+    .shortlist-panel.dark li {
+      color: #c8d7df;
+    }
+
+    .shortlist-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .shortlist-list li + li {
+      margin-top: 9px;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .fit-item {
+      padding: 14px;
+      border-radius: 6px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+    }
+
+    .fit-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .fit-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 12px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .date {
+      color: var(--gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .highlights {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .highlights li + li {
+      margin-top: 6px;
+    }
+
+    .contact {
+      margin: 30px 0 46px;
+      padding: 30px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.24), transparent 42%),
+        #12242b;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      color: #ffffff;
+    }
+
+    .contact p {
+      margin: 8px 0 0;
+      color: #c8d7df;
+    }
+
+    .contact .button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 900px) {
+      html {
+        scroll-padding-top: 142px;
+      }
+
+      .section {
+        scroll-margin-top: 142px;
+      }
+
+      .hero,
+      .grid.two,
+      .grid.three,
+      .about,
+      .insight-strip,
+      .shortlist,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .proof {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      html {
+        scroll-padding-top: 18px;
+      }
+
+      .page {
+        width: min(100% - 22px, 1220px);
+      }
+
+      .topbar {
+        position: static;
+        padding: 8px 0;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        justify-content: stretch;
+        gap: 8px;
+        padding: 0;
+        background: transparent;
+      }
+
+      .nav-links a {
+        justify-content: center;
+        padding: 10px 8px;
+        background: var(--surface-soft);
+      }
+
+      .nav-links .button.primary {
+        grid-column: 1 / -1;
+        margin-left: 0;
+      }
+
+      .hero {
+        padding: 18px 0 28px;
+      }
+
+      .hero-copy,
+      .proof-card,
+      .about-main,
+      .about-point,
+      .panel,
+      .project,
+      .experience-row,
+      .contact {
+        padding: 18px;
+      }
+
+      .proof {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.25rem, 13vw, 3.25rem);
+      }
+
+      .summary {
+        font-size: 1.08rem;
+      }
+
+      .hero-tags {
+        margin-top: 20px;
+      }
+
+      .section-head,
+      .experience-row {
+        display: block;
+      }
+
+      .fit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head p {
+        margin-top: 8px;
+      }
+
+      .date {
+        display: block;
+        margin-top: 8px;
+      }
+
+      .button,
+      .nav-links a {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="page nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Mahesh Rathod home">
+        
+        <span>
+          <strong>Mahesh Rathod</strong>
+          <span>Full Stack Developer</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a class="button primary" href="mailto:maheshrathodd.dev@gmail.com">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Open to internships and junior developer roles</p>
+        <h1 id="hero-title">Full Stack Developer building <span class="accent-text">real products</span>, not just pages.</h1>
+        <p class="summary">
+          I am Mahesh Rathod, an MCA student and full stack developer who can work on both sides of an application:
+          user interfaces, APIs, databases, authentication, dashboards, and production-ready backend systems.
+        </p>
+        <div class="hero-tags" aria-label="Core strengths">
+          <span>Frontend UI</span>
+          <span>Backend APIs</span>
+          <span>Database Design</span>
+          <span>Auth & RBAC</span>
+          <span>Product Features</span>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="#projects">View projects</a>
+          <a class="button secondary" href="https://drive.google.com/file/d/18DTvHf-w9F81HHHGRxxKD7k36FYhFjvF/view" target="_blank" rel="noreferrer">View resume</a>
+          <a class="button secondary" href="https://github.com/mahesh95-git" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button secondary" href="https://linkedin.com/in/maheshrathod" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button secondary" href="https://leetcode.com/u/Mahesh__Rathod/" target="_blank" rel="noreferrer">LeetCode</a>
+          <a class="button secondary" href="https://www.geeksforgeeks.org/profile/maheshratyqv1" target="_blank" rel="noreferrer">GeeksforGeeks</a>
+        </div>
+      </div>
+
+      <div class="proof" aria-label="Portfolio highlights">
+        <div class="proof-card featured">
+          <div class="proof-number">Full Stack</div>
+          <div class="proof-label">Able to work across frontend, backend, databases, APIs, authentication, and real-time product features.</div>
+          <div class="mini-code">
+            <div><span>const</span> role = "Full Stack Developer";</div>
+            <div><span>connect</span>("UI", "API", "Database");</div>
+            <div><span>ship</span>("useful product features");</div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-number">20+</div>
+          <div class="proof-label">Projects and practice builds across frontend, backend, dashboards, and real-time features.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-number">400+</div>
+          <div class="proof-label">
+            DSA problems solved using C++.
+            <a class="project-link" href="https://leetcode.com/u/Mahesh__Rathod/" target="_blank" rel="noreferrer">LeetCode</a>
+            <a class="project-link" href="https://www.geeksforgeeks.org/profile/maheshratyqv1" target="_blank" rel="noreferrer">GFG</a>
+          </div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-number">10+</div>
+          <div class="proof-label">Technologies across frontend, backend, databases, auth, and deployment tools.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="section-head">
+        <h2 id="about-title">About Me</h2>
+        
+      </div>
+      <div class="about">
+        <article class="about-main">
+          <h3>I like turning ideas into working product features.</h3>
+          <p>
+            My strength is understanding both the user side and the technical side of an application.
+            I can design clear screens, connect them with backend APIs, structure data, add authentication,
+            and keep improving the feature until it feels useful.
+          </p>
+          <p>
+            I am not trying to be limited to one stack. I use the technologies I know today to build real
+            projects, and I am ready to learn the tools a team uses when the product needs them.
+          </p>
+          <div class="insight-strip">
+            <div class="insight">
+              <strong>UI</strong>
+              <span>Responsive screens, dashboards, forms, and user flows.</span>
+            </div>
+            <div class="insight">
+              <strong>API</strong>
+              <span>REST endpoints, validation, auth, and integration logic.</span>
+            </div>
+            <div class="insight">
+              <strong>DB</strong>
+              <span>MongoDB, PostgreSQL, schemas, and data relationships.</span>
+            </div>
+            <div class="insight">
+              <strong>Ship</strong>
+              <span>Features that solve real needs, not just visual pages.</span>
+            </div>
+          </div>
+        </article>
+        <div class="about-points">
+          <article class="about-point">
+            <strong>How I work</strong>
+            <span>I break features into UI, data, API, auth, edge cases, and testing steps so the work stays clear.</span>
+          </article>
+          <article class="about-point">
+            <strong>What I care about</strong>
+            <span>Readable code, simple user experience, useful features, and learning from feedback quickly.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="recruiter-fit-title">
+      <div class="section-head">
+        <h2 id="recruiter-fit-title">Full Stack Developer Across Both Sides</h2>
+        
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Frontend and backend ownership</h3>
+          <p>Can create responsive interfaces, connect APIs, handle auth, design database models, and support complete feature delivery.</p>
+        </article>
+        <article class="panel">
+          <h3>Product features, not just pages</h3>
+          <p>Projects include payments, reports, analytics, certificates, attendance, video calls, and real-time messaging.</p>
+        </article>
+        <article class="panel">
+          <h3>Technology adaptable</h3>
+          <p>Pursuing MCA, completed BCA with 8.08 CGPA, and comfortable learning the tools required by the product or team.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="shortlist-title">
+      <div class="section-head">
+        <h2 id="shortlist-title">Shortlist Snapshot</h2>
+       
+      </div>
+      <div class="shortlist">
+        <article class="shortlist-panel dark">
+          <h3>Best fit roles</h3>
+          <p>Full Stack Developer Intern, Frontend Developer, Backend Developer Intern, Junior Web Developer, and Product Engineering Intern roles.</p>
+          <ul class="shortlist-list">
+            <li>Available for internship or junior developer opportunities.</li>
+            <li>Strong match for teams that need someone who can move between UI, API, database, and integration work.</li>
+            <li>Comfortable learning project-specific tools while building complete features from user screen to data layer.</li>
+          </ul>
+        </article>
+        <article class="shortlist-panel">
+          <h3>Why I am worth interviewing</h3>
+          <div class="fit-grid">
+            <div class="fit-item">
+              <strong>Product builder</strong>
+              <span>Built dashboards, analytics, reports, chat, video calls, certificates, and payments.</span>
+            </div>
+            <div class="fit-item">
+              <strong>Backend capable</strong>
+              <span>Works with APIs, auth, RBAC, validation, database models, and real-time events.</span>
+            </div>
+            <div class="fit-item">
+              <strong>Problem solver</strong>
+              <span>400+ DSA problems solved using C++ across LeetCode and GeeksforGeeks.</span>
+            </div>
+            <div class="fit-item">
+              <strong>Adaptable developer</strong>
+              <span>Can learn team-specific technologies while applying strong full stack fundamentals.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="profile-value-title">
+      <div class="section-head">
+        <h2 id="profile-value-title">What I Can Do For Your Team</h2>
+       
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Build user-facing features</h3>
+          <p>Create responsive React and Next.js screens with forms, dashboards, tables, filters, and clean user flows.</p>
+        </article>
+        <article class="panel">
+          <h3>Connect frontend to backend</h3>
+          <p>Integrate REST APIs, auth, validation, media uploads, database data, and role-based access across the app.</p>
+        </article>
+        <article class="panel">
+          <h3>Support production quality</h3>
+          <p>Write maintainable code, organize components and routes, debug issues, and improve app reliability step by step.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="section-head">
+        <h2 id="projects-title">Selected Projects</h2>
+      </div>
+      <div class="grid three">
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <h3>Campus Event Manager</h3>
+              <div class="project-type">AI-powered multi-tenant SaaS</div>
+            </div>
+            <a class="project-link" href="https://github.com/mahesh95-git" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p>Built role-based dashboards for admins, coordinators, judges, volunteers, and participants with attendance, payment tracking, and automated reporting workflows.</p>
+          <div class="tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">Cloudinary</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <h3>PW LMS Platform</h3>
+              <div class="project-type">Learning management system</div>
+            </div>
+            <a class="project-link" href="https://github.com/mahesh95-git" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p>Developed student, instructor, and admin panels with Clerk authentication, course purchase flows, certificates, revenue tracking, and analytics views.</p>
+          <div class="tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Clerk</span>
+            <span class="tag">WebRTC</span>
+            <span class="tag">WebSocket</span>
+            <span class="tag">Zod</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <h3>Coffee Chat</h3>
+              <div class="project-type">Real-time chat and video calling</div>
+            </div>
+            <a class="project-link" href="https://github.com/mahesh95-git" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p>Created messaging and calling features with WebSocket communication, WebRTC audio/video, friend management, groups, media uploads, and validation.</p>
+          <div class="tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">WebRTC</span>
+            <span class="tag">WebSocket</span>
+            <span class="tag">Cloudinary</span>
+            <span class="tag">Zod</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="section-head">
+        <h2 id="skills-title">Technical Skills</h2>
+      </div>
+      <div class="grid two">
+        <article class="panel skill-group">
+          <h3>Frontend</h3>
+          <div class="skill-list">
+            <span class="tag">React.js</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Redux Toolkit</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </article>
+        <article class="panel skill-group">
+          <h3>Backend</h3>
+          <div class="skill-list">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JWT Auth</span>
+            <span class="tag">WebSocket</span>
+            <span class="tag">Zod</span>
+          </div>
+        </article>
+        <article class="panel skill-group">
+          <h3>Database and ORM</h3>
+          <div class="skill-list">
+            <span class="tag">MongoDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Mongoose</span>
+            <span class="tag">Prisma</span>
+          </div>
+        </article>
+        <article class="panel skill-group">
+          <h3>Tools and Platforms</h3>
+          <div class="skill-list">
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Cloudinary</span>
+            <span class="tag">Clerk</span>
+            <span class="tag">C++</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="section-head">
+        <h2 id="education-title">Education and Highlights</h2>
+       
+      </div>
+      <div class="timeline">
+        <article class="experience-row">
+          <div>
+            <h3>Master of Computer Application</h3>
+            <p>KIT's IMER, Kolhapur</p>
+          </div>
+          <span class="date">Expected 2027</span>
+        </article>
+        <article class="experience-row">
+          <div>
+            <h3>Bachelor of Computer Application</h3>
+            <p>Vivekanand College, Kolhapur</p>
+          </div>
+          <span class="date">2025 - CGPA 8.08</span>
+        </article>
+        <article class="experience-row">
+          <div>
+            <h3>Problem Solving and Engineering Interests</h3>
+            <ul class="highlights">
+              <li>Solved 400+ DSA problems using C++.</li>
+              <li>
+                Coding profiles:
+                <a class="project-link" href="https://leetcode.com/u/Mahesh__Rathod/" target="_blank" rel="noreferrer">LeetCode</a>
+                and
+                <a class="project-link" href="https://www.geeksforgeeks.org/profile/maheshratyqv1" target="_blank" rel="noreferrer">GeeksforGeeks</a>.
+              </li>
+              <li>Interested in backend architecture, system design, APIs, and scalable full stack systems.</li>
+              <li>Based in Kolhapur, Maharashtra and available for internship or junior developer opportunities.</li>
+            </ul>
+          </div>
+          <span class="date">Available now</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Let us build something useful.</h2>
+        <p>Email: maheshrathodd.dev@gmail.com | Phone: +91 9370079379</p>
+      </div>
+      <div class="contact-links">
+        <a class="button primary" href="mailto:maheshrathodd.dev@gmail.com">Email me</a>
+        <a class="button secondary" href="https://linkedin.com/in/maheshrathod" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="button secondary" href="https://github.com/mahesh95-git" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button secondary" href="https://leetcode.com/u/Mahesh__Rathod/" target="_blank" rel="noreferrer">LeetCode</a>
+        <a class="button secondary" href="https://www.geeksforgeeks.org/profile/maheshratyqv1" target="_blank" rel="noreferrer">GFG</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
